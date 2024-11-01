@@ -1,15 +1,37 @@
 :root {
-    --background-color: white;
-    --text-color: black;
-    --slider-background: #fff;
-    --slider-border: black;
+    --background-color: black; 
+    --text-color: #F8F8F8; 
+    --slider-background: #F8F8F8;
+    --slider-border: #F8F8F8; 
+    --yourbreaks-border: #F8F8F8;
+    --inner-shadow-dark: 
+        inset 0 0 4px rgba(0, 0, 0, 0.5);
+    --inner-shadow-light: 
+        inset 0 0 4px #62B1BA;
 }
 
 [data-theme='dark'] {
     --background-color: black;
-    --text-color: white;
-    --slider-background: #333;
-    --slider-border: white;
+    --text-color: #F8F8F8;
+    --slider-background: #F8F8F8;
+    --slider-border: #F8F8F8;
+    --yourbreaks-border: #F8F8F8;
+    --inner-shadow-dark: 
+        inset 0 0 4px rgba(0, 0, 0, 0.5);
+    --inner-shadow-light: 
+        inset 0 0 4px #62B1BA;
+}
+
+[data-theme='light'] {
+    --background-color: #F8F8F8;
+    --text-color: black;
+    --slider-background: #F8F8F8;
+    --slider-border: black;
+    --inner-shadow-dark: 
+        inset 0 0 4px rgba(0, 0, 0, 0.5);
+    --inner-shadow-light: 
+        inset 0 0 4px #62B1BA;
+    --yourbreaks-border: black;
 }
 
 body {
@@ -29,18 +51,12 @@ body {
 
 .logo {
     height: 70px; 
-    transition: opacity 0.3s; /* Smooth transition for visibility */
 }
 
-/* If you need specific styles for the logo in dark mode */
 [data-theme='dark'] .logo {
-    /* Example: Make logo more visible in dark mode */
-    opacity: 1; /* Adjust this if you want a different effect */
+    height: 70px; 
 }
 
-[data-theme='light'] .logo {
-    opacity: 1; /* Adjust this if you want a different effect */
-}
 
 .switch {
     position: relative;
@@ -83,7 +99,7 @@ body {
 
 input:checked + .slider {
     background-color: #000;
-    border-color: white;
+    border-color: #F8F8F8;
 }
 
 input:focus + .slider {
@@ -92,4 +108,253 @@ input:focus + .slider {
 
 input:checked + .slider:before {
     transform: translateX(20px);
+}
+
+
+
+/* The body section */
+
+.dbodysec{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 50px;
+}
+
+.yourbreaksec{
+    border: var(--yourbreaks-border) 2px solid;
+    padding: 2%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.yourbreaks{
+    color: #62B1BA;
+    font-family: 'Roboto';
+    font-size: 32pt;
+}
+
+.thechecklist {
+    list-style-type: none;
+    padding: 0; 
+}
+
+.thechecklist li {
+    margin: 10px 0; 
+}
+
+.thechecklist input[type="checkbox"] {
+    margin-right: 10px; 
+}
+
+
+
+
+
+.breaktimesec {
+    padding: 20px;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: block;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.maintxt {
+    color: #62B1BA;
+    font-size: 48pt;
+    font-family: 'Pacifico';
+    text-align: center;
+    margin-bottom: 20px;
+}
+.subtext {
+    color: var(--text-color); 
+    font-size: 16px; 
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.duserinput {
+    border: 2px solid var(--yourbreaks-border);
+    border-radius: 10px;
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+
+select, 
+input[type="time"] {
+    padding: 10px;
+    border: 2px solid var(--yourbreaks-border);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    transition: border-color 0.3s;
+}
+
+.clockdurate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+input[type="time"] {
+    padding: 10px;
+    border: 2px solid var(--yourbreaks-border);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color); 
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    transition: border-color 0.3s;
+}
+
+[data-theme='dark'] input[type="time"] {
+    background-color: #33333371; 
+    color: #F8F8F8;
+    border: 2px solid #F8F8F8; 
+}
+
+
+[data-theme='dark'] input[type="time"]:focus {
+    border-color: #62B1BA;
+}
+
+select:focus, 
+input[type="time"]:focus {
+    border-color: #62B1BA; 
+    outline: none;
+    background-color: var(--background-color);
+}
+button[type="submit"] {
+    padding: 10px 20px;
+    color: var(--text-color);
+    border: 2px solid var(--yourbreaks-border); 
+    background-color: var(--background-color);
+    border-radius: 5px;
+    font-family: 'Anonymous Pro';
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #4a9e9c; 
+    border-color: #62B1BA; 
+}
+
+
+
+/* Media Queries */
+
+/* Styles for tablets */
+@media (max-width: 768px) {
+    .dnav {
+        padding: 10px 20px; 
+    }
+
+
+    .dbodysec {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    
+    .breaktimesec {
+        order: 1;
+    }
+
+    .yourbreaksec {
+        order: 2; 
+    }
+
+
+    .yourbreaks {
+        font-size: 24pt;
+    }
+
+    .maintxt {
+        font-size: 32pt; 
+    }
+
+    .subtext {
+        font-size: 14px; 
+    }
+
+    .duserinput {
+        width: 100%;
+        padding: 10px; 
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+
+    .clockdurate {
+        flex-direction: column; 
+        align-items: stretch;
+        gap: 10px;
+    }
+}
+
+/* Styles for mobile devices */
+@media (max-width: 480px) {
+    .dnav {
+        flex-direction: column;
+        align-items: center; 
+        padding: 10px 0; 
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+
+    .dbodysec {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .breaktimesec {
+        order: 1; 
+    }
+    
+    .yourbreaksec {
+        order: 2;
+    }
+    
+
+    .yourbreaksec,
+    .breaktimesec {
+        padding: 10px; 
+        margin: 10px 0; 
+    }
+
+    .duserinput {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px; 
+        box-sizing: border-box;
+        gap: 10px;
+    }
+
+    select, 
+    input[type="time"],
+    button[type="submit"] {
+        max-width: 100%;
+        font-size: 14px; 
+    }
 }
