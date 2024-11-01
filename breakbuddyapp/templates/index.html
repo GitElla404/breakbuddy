@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <script src="{% static 'index.js' %}" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Pacifico&display=swap&family=Anonymous+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{% static 'websiteicon16.png' %}"
+      type="image/x-icon"
+    />
+    <title>BreakBuddy</title>
+  </head>
+  <body>
+    <!-- The navigation bar -->
+    <nav class="dnav">
+      <img src="{% static 'lightmodelogo.png' %}" alt="logo" class="logo" />
+      <label id="toggle-theme" class="switch">
+        <input type="checkbox" />
+        <span class="slider round"></span>
+      </label>
+    </nav>
+
+    <!-- The main body section -->
+    <main class="dbodysec">
+      <!-- Your breaks section -->
+      <section class="yourbreaksec">
+        <h2 class="yourbreaks">Your Breaks</h2>
+        <!-- The checklists -->
+        <ol class="thechecklist">
+            {% for break_item in breaks %}
+                <li>
+                    <label>
+                        <input type="checkbox" onchange="toggleCross(this)" />
+                        <span>{{ break_item }}</span>
+                    </label>
+                </li>
+            {% empty %}
+                <li>No breaks added yet.</li>
+            {% endfor %}
+        </ol>
+      </section>
+
+      <!-- Break time section -->
+      <section class="breaktimesec">
+        <div class="dtxts">
+        <p class="maintxt">Plan Your Breaks!</p>
+    <p class="subtext">Select a break activity, a time, and the duration to have your breaks planned.</p>
+</div>    
+    <form class="duserinput" action="" method="post">
+          <!-- Dropdown menu of the break activities available -->
+          {% csrf_token %}
+          <select id="activity" name="activity" required>
+            <option value="Organize your space">🧹 Organize your space</option>
+            <option value="Eat a full meal">🍽️ Eat a full meal</option>
+            <option value="Network">🤝 Network</option>
+            <option value="Check your emails">📧 Check your emails</option>
+            <option value="Take a Nap">😴 Take a Nap</option>
+            <option value="Take a walk">🚶 Take a walk</option>
+            <option value="Stretch">🧘 Stretch</option>
+            <option value="Meditate">🧘‍♂️ Meditate</option>
+            <option value="Listen to music">🎵 Listen to music</option>
+            <option value="Read a book">📚 Read a book</option>
+        </select>
+        
+          <div class="clockdurate">
+            <div class="dclock">
+              <input type="time" id="time" name="time" required/>
+            </div>
+
+            <select id="duration" name="duration" required>
+              <option value="5">5 mins</option>
+              <option value="10">10 mins</option>
+              <option value="15">15 mins</option>
+              <option value="20">20 mins</option>
+              <option value="30">30 mins</option>
+              <option value="45">45 mins</option>
+              <option value="60">60 mins</option>
+            </select>
+          </div>
+
+          <button type="submit">Add Break</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+:root {
+    --background-color: white;
+    --text-color: black;
+    --slider-background: #fff;
+    --slider-border: black;
+}
+
+[data-theme='dark'] {
+    --background-color: black;
+    --text-color: white;
+    --slider-background: #333;
+    --slider-border: white;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* The nav */
+.dnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px; 
+    background-color: var(--background-color); 
+}
+
+.logo {
+    height: 70px; 
+    transition: opacity 0.3s; /* Smooth transition for visibility */
+}
+
+/* If you need specific styles for the logo in dark mode */
+[data-theme='dark'] .logo {
+    /* Example: Make logo more visible in dark mode */
+    opacity: 1; /* Adjust this if you want a different effect */
+}
+
+[data-theme='light'] .logo {
+    opacity: 1; /* Adjust this if you want a different effect */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; 
+    height: 20px; 
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--slider-background);
+    border: 2px solid var(--slider-border);
+    transition: background-color 0.4s, border-color 0.4s;
+    border-radius: 20px; 
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 8px; 
+    width: 8px;
+    left: 2px; 
+    bottom: 2px;
+    background-color: var(--slider-background);
+    transition: transform 0.4s;
+    border: 2px solid var(--slider-border);
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #000;
+    border-color: white;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #000;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
