@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-u5jxikt)^dkc$+5$w^_d66%0wx0#8dts*1f*hsa&o*+_m)9^l)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://breakbuddy.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
