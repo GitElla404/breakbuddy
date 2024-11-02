@@ -26,7 +26,7 @@ load_dotenv()
 SECRET_KEY = 'django-insecure-u5jxikt)^dkc$+5$w^_d66%0wx0#8dts*1f*hsa&o*+_m)9^l)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG","True") == "True"
 
 ALLOWED_HOSTS = ['breakbuddy.onrender.com', '127.0.0.1', 'localhost']
 
